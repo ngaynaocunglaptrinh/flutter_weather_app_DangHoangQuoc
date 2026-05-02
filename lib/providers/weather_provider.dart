@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../models/weather_model.dart';
 import '../models/forecast_model.dart';
 import '../services/weather_service.dart';
@@ -31,7 +30,6 @@ class WeatherProvider extends ChangeNotifier {
   bool _isCachedData = false;
   DateTime? _lastUpdateTime;
   String _temperatureUnit = 'C';
-
   WeatherModel? get currentWeather => _currentWeather;
   List<ForecastModel> get forecast => _forecast;
   WeatherState get state => _state;
@@ -79,14 +77,11 @@ class WeatherProvider extends ChangeNotifier {
     try {
       final weather = await weatherService.getCurrentWeatherByCity(cityName);
       final forecast = await weatherService.getForecastByCity(cityName);
-
       _currentWeather = weather;
       _forecast = forecast;
       _state = WeatherState.loaded;
-
       await storageService.saveWeatherData(weather);
       await storageService.addRecentSearch(weather.cityName);
-
       _lastUpdateTime = DateTime.now();
     } catch (e) {
       _state = WeatherState.error;
@@ -102,7 +97,6 @@ class WeatherProvider extends ChangeNotifier {
     _errorMessage = '';
     _isCachedData = false;
     notifyListeners();
-
     try {
       final position = await locationService.getCurrentLocation();
 
@@ -156,7 +150,6 @@ class WeatherProvider extends ChangeNotifier {
     if (_currentWeather == null) {
       return;
     }
-
     await storageService.addFavoriteCity(_currentWeather!.cityName);
   }
 }

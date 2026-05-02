@@ -11,7 +11,6 @@ class StorageService {
 
   Future<void> saveWeatherData(WeatherModel weather) async {
     final prefs = await SharedPreferences.getInstance();
-
     await prefs.setString(_weatherKey, jsonEncode(weather.toJson()));
     await prefs.setInt(_lastUpdateKey, DateTime.now().millisecondsSinceEpoch);
   }
@@ -19,7 +18,6 @@ class StorageService {
   Future<WeatherModel?> getCachedWeather() async {
     final prefs = await SharedPreferences.getInstance();
     final weatherJson = prefs.getString(_weatherKey);
-
     if (weatherJson == null) {
       return null;
     }

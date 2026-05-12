@@ -7,4 +7,5 @@ Cấu hình API
 Thực hiện các lệnh gọi API 
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/ff7e6d21-22f7-4c60-a313-3eb2045f3728" />
 
+Mong cô thông cảm lúc quay xong up lên, em mới biết mic tai nghe bị lỗi mic xíu.
 link demo app = https://drive.google.com/file/d/1sJAlpuE3P9hE612ku-yDwsQTyuZMSevn/view?usp=sharing
